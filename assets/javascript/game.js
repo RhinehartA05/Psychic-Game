@@ -46,7 +46,7 @@ document.onkeyup = function(event) {
         // alert("access: case letter " + playerGuess + " accepted.... Bypassed total: " + wins + "....Needed: four(4)");
         wins++;
         var para = document.createElement("p");
-        var node = document.createTextNode("access: case letter " + playerGuess + " accepted.... bypassed total: " + wins + " ....four(4) needed");
+        var node = document.createTextNode("access: case letter " + playerGuess + " ACCEPTED.... bypassed total: " + wins + " ....four(4) needed");
         para.appendChild(node);
         var element = document.getElementById("textContent");
         element.appendChild(para);
@@ -56,7 +56,7 @@ document.onkeyup = function(event) {
         // alert("access: " + " PERMISSION DENIED.... Attempts left: " + guessRemaining);
         guessRemaining--;
         var para = document.createElement("p");
-        var node = document.createTextNode("access: " + " PERMISSION DENIED.... attempts left: " + guessRemaining);
+        var node = document.createTextNode("access: " + " PERMISSION DENIED.... case letter does not match.... attempts left: " + guessRemaining);
         para.appendChild(node);
         var element = document.getElementById("textContent");
         element.appendChild(para);
