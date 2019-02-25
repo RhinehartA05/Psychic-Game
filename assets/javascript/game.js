@@ -1,52 +1,65 @@
-//The Psychic Game
+//The Psychic Game - jurassic park
 
 //HTML says "Guess what letter I'm thinking of?"
-let letter = ['a', 'b']; //array of possible selections by computer
+let letter = ['j','u','r','a','s','i','c','p','k',]; //array of possible selections by computer
 let wins = 0; //The game notes player wins
 let losses = 0; //The game notes player losts
-let guessRemaining = 0; //The game notes guesses remaining
 let playerGuess = null;
+let guessRemaining = 0; //The game notes guesses remaining
 
-let random = Math.floor(Math.random() * letter.length); //picks random word
-let blank = letter[random] //the random word will be equal to blank
-console.log(blank); //console shows random word which equals to blank
+
 
 //id's needed for game
 let textDir = document.getElementById("textDir");//Tells player directions
-let playerPick = document.getElementById("playerPick");//The players pick
-let comPick = document.getElementById("comPick");//What the computer is thinking
-let textWin = document.getElementById("textWin");//The players wins
-let textLose = document.getElementById("textLose");//The players losses
-let textGuess = document.getElementById("textGuess");
+let playerPick = document.getElementById("playerPick");//Displays players mapped keys
+let textWin = document.getElementById("textWin");//Displays players bypasses
+let textLose = document.getElementById("textLose");//Displays players Permission Denied
+let textGuess = document.getElementById("textGuess");//Displays players remaining bypass attempts.
 
-let newPara = document.createElement("p");
-let textPara = document.createTextNode("Press correct letter input to bypass");
-newPara.appendChild(textPara);
-let element = document.getElementById("consoleText");
-
+// let newPara = document.createElement("p");
+// let textPara = document.createTextNode("Input correct case letter to bypass");
+// newPara.appendChild(textPara);
+// let element = document.getElementById("consoleText");
 
 
+document.onkeyup = function(event) {
+    
+    
+    let playerGuess = event.key; //Which key is pressed.
+    console.log(playerGuess); //log on the console
 
+    let randomLet = Math.floor(Math.random() * letter.length); //picks random word
+    let blank = letter[randomLet] //the random word will be equal to blank
+    console.log(blank); //console shows random word which equals to blank
+    
+     // Reworked our code from last step to use "else if" instead of lots of if statements.
 
+    // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
+    if ((playerGuess === "j") || 
+    (playerGuess === "u") || 
+    (playerGuess === "r") || (playerGuess === "a") || 
+    (playerGuess === "s") || (playerGuess === "i") || 
+    (playerGuess === "c") || (playerGuess === "p")|| 
+    (playerGuess === "k")) {
 
-document.onkeyup = function(event) { //The game notes what the player has guessed.
-let playerGuess = event.key;
+      
 
+      if ((playerGuess === blank)) {
+        alert("bypass");
+      } else if (playerGuess !== blank) {
+        alert("PERMISSION DENIED.");
+      } else {
+        alert("non imput: PERMISSION DENIED.")
+      }
 
-if (playerGuess === blank) {
-    alert("you're right")
-
-
-}
-
-if (playerGuess !== blank) {
-    alert("you're wrong")
-
-}
-
-
-}
-
+      
+      // Display the user and computer guesses, and wins/losses/ties.
+      playerPick.textContent = "You chose: " + playerGuess;
+      textWin.textContent = "wins: " + wins;
+      textLose.textContent = "losses: " + losses;
+      
+    }
+  };
 
 
 
