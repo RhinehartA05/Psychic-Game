@@ -1,0 +1,28 @@
+/* .brd {
+    border: 1px solid red;
+} */
+
+body {
+    background-color: #202f85;
+   
+}
+
+p {
+    font-family: monospace;
+    color: #a9b4c8;
+    font-size: 18px;
+}
+
+.container {
+    margin: 0;
+    padding-left: 10px;
+    
+}
+
+.vc-console {
+    margin: 0;
+    padding: 0;
+
+}
+
+
