@@ -1,20 +1,19 @@
 //The Psychic Game - jurassic park
 
 //HTML says "Guess what letter I'm thinking of?"
-let letter = ['j','u','r','a','s','i','c','p','k',]; //array of possible selections by computer
-let wins = 0; //The game notes player wins
-let losses = 0; //The game notes player losts
-let playerGuess = null;
-let guessRemaining = 0; //The game notes guesses remaining
-
+var letter = ['j','u','r','a','s','i','c','p','k']; //array of possible selections by computer 
+var wins = 0; //The game notes player wins
+var losses = 0; //The game notes player losts
+var playerGuess = null;
+var guessRemaining = 7; //The game notes guesses remaining
 
 
 //id's needed for game
-let textDir = document.getElementById("textDir");//Tells player directions
-let playerPick = document.getElementById("playerPick");//Displays players mapped keys
-let textWin = document.getElementById("textWin");//Displays players bypasses
-let textLose = document.getElementById("textLose");//Displays players Permission Denied
-let textGuess = document.getElementById("textGuess");//Displays players remaining bypass attempts.
+var textDir = document.getElementById("textDir");//Tells player directions
+var playerPick = document.getElementById("playerPick");//Displays players mapped keys
+var textWin = document.getElementById("textWin");//Displays players bypasses
+var textLose = document.getElementById("textLose");//Displays players Permission Denied
+var textGuess = document.getElementById("textGuess");//Displays players remaining bypass attempts.
 
 // let newPara = document.createElement("p");
 // let textPara = document.createTextNode("Input correct case letter to bypass");
@@ -24,41 +23,101 @@ let textGuess = document.getElementById("textGuess");//Displays players remainin
 
 document.onkeyup = function(event) {
     
-    
-    let playerGuess = event.key; //Which key is pressed.
+  
+    var playerGuess = event.key; //Which key is pressed.
     console.log(playerGuess); //log on the console
 
-    let randomLet = Math.floor(Math.random() * letter.length); //picks random word
-    let blank = letter[randomLet] //the random word will be equal to blank
+    var randomLet = Math.floor(Math.random() * letter.length); //picks random word
+    var blank = letter[randomLet] //the random word will be equal to blank
     console.log(blank); //console shows random word which equals to blank
     
      // Reworked our code from last step to use "else if" instead of lots of if statements.
 
-    // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
+    // What happens if..    
     if ((playerGuess === "j") || 
     (playerGuess === "u") || 
     (playerGuess === "r") || (playerGuess === "a") || 
     (playerGuess === "s") || (playerGuess === "i") || 
     (playerGuess === "c") || (playerGuess === "p")|| 
     (playerGuess === "k")) {
+    
+  
+      if ((blank === playerGuess)) {
+        // alert("access: case letter " + playerGuess + " accepted.... Bypassed total: " + wins + "....Needed: four(4)");
+        wins++;
+        var para = document.createElement("p");
+        var node = document.createTextNode("access: case letter " + playerGuess + " accepted.... bypassed total: " + wins + " ....four(4) needed");
+        para.appendChild(node);
+        var element = document.getElementById("textContent");
+        element.appendChild(para);
+
+        
+    } if (blank !== playerGuess) {
+        // alert("access: " + " PERMISSION DENIED.... Attempts left: " + guessRemaining);
+        guessRemaining--;
+        var para = document.createElement("p");
+        var node = document.createTextNode("access: " + " PERMISSION DENIED.... attempts left: " + guessRemaining);
+        para.appendChild(node);
+        var element = document.getElementById("textContent");
+        element.appendChild(para);
+
+        
+    } if (wins === 4){
+      var para = document.createElement("p");
+      var node = document.createTextNode("access: GRANTED");
+      para.appendChild(node);
+      var element = document.getElementById("textContent");
+      element.appendChild(para);
+
+      var para = document.createElement("p");
+      var node = document.createTextNode("" + " .... welcome dennis ");
+      para.appendChild(node);
+      var element = document.getElementById("textContent");
+      element.appendChild(para);
+
+      var para = document.createElement("p");
+      var node = document.createTextNode("centralpk:admin nedry.d$");
+      para.appendChild(node);
+      var element = document.getElementById("textContent");
+      element.appendChild(para);
+      
+      
+      // alert("access: GRANTED")
+      
+    } 
+    if (guessRemaining === 0){
+      var para = document.createElement("p");
+      var node = document.createTextNode("access: PERMISSION DENIED...and..");
+      para.appendChild(node);
+      var element = document.getElementById("textContent");
+      element.appendChild(para);
 
       
-
-      if ((playerGuess === blank)) {
-        alert("bypass");
-      } else if (playerGuess !== blank) {
-        alert("PERMISSION DENIED.");
-      } else {
-        alert("non imput: PERMISSION DENIED.")
-      }
-
-      
-      // Display the user and computer guesses, and wins/losses/ties.
-      playerPick.textContent = "You chose: " + playerGuess;
-      textWin.textContent = "wins: " + wins;
-      textLose.textContent = "losses: " + losses;
-      
-    }
+      for(var i = 0; i < 200; i++){
+        var para = document.createElement("p");
+        var node = document.createTextNode("YOU DIDN'T SAY THE MAGIC WORD!");
+        para.appendChild(node);
+        var element = document.getElementById("textContent");
+        element.appendChild(para);
+        
+        function sound(src) {
+          this.sound = document.createElement("audio");
+          this.sound.src = src;
+          this.sound.setAttribute("preload", "auto");
+          this.sound.setAttribute("controls", "none");
+          this.sound.style.display = "none";
+          document.body.appendChild(this.sound);
+          this.play = function(){
+            this.sound.play();
+          }
+          this.stop = function(){
+            this.sound.pause();
+          }
+        }
+      };
+      // alert("access: PERMISSION DENIED...and.." + "YOU DIDN'T SAY THE MAGIC WORD!"+ "YOU DIDN'T SAY THE MAGIC WORD!"+ "YOU DIDN'T SAY THE MAGIC WORD!")
+    };
+    } 
   };
 
 
@@ -80,7 +139,7 @@ document.onkeyup = function(event) {
 
 ///////////////////////////////
 
-//,'d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'
+// //,'d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'
 
 
 
