@@ -6,7 +6,7 @@ var letter = ['j','u','r','a','s','i','c','p','k']; //array of possible selectio
 var wins = 0; //The game notes player wins
 var losses = 0; //The game notes player losts
 var playerGuess = null;
-var guessRemaining = 7; //The game notes guesses remaining
+var guessRemaining = 4; //The game notes guesses remaining
 
 
 //id's needed for game
@@ -40,16 +40,18 @@ document.onkeyup = function(event) {
       if ((blank === playerGuess)) {
         wins++;
         var para = document.createElement("p");
-        var node = document.createTextNode("access: case letter " + playerGuess + " ACCEPTED.... bypassed total: " + wins + ".... four(4) needed");
+        var node = document.createTextNode("access: ACCEPTED " + playerGuess + " case letter match... total " + wins +" of 3");
         para.appendChild(node);
         var element = document.getElementById("textContent");
         element.appendChild(para);
+        var audio = new Audio('Correct.mp3');
+        audio.play()
 
         
     } if (blank !== playerGuess) {
         guessRemaining--;
         var para = document.createElement("p");
-        var node = document.createTextNode("access: " + " PERMISSION DENIED.... case letter " + playerGuess + " does not match.... attempts left: " + guessRemaining);
+        var node = document.createTextNode("access: " + " PERMISSION DENIED.... " + playerGuess + " not a match.... attempts left: " + guessRemaining);
         para.appendChild(node);
         var element = document.getElementById("textContent");
         element.appendChild(para);
@@ -58,7 +60,7 @@ document.onkeyup = function(event) {
        
 
         
-    } if (wins === 4){
+    } if (wins === 2){
       var para = document.createElement("p");
       var node = document.createTextNode("access: GRANTED");
       para.appendChild(node);
@@ -70,6 +72,7 @@ document.onkeyup = function(event) {
       para.appendChild(node);
       var element = document.getElementById("textContent");
       element.appendChild(para);
+      setTimeout(function(){ location.reload(); }, 16000);
 
       var para = document.createElement("p");
       var node = document.createTextNode("/centralpk:admin nedry.d$");
