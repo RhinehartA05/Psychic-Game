@@ -53,6 +53,8 @@ document.onkeyup = function(event) {
         para.appendChild(node);
         var element = document.getElementById("textContent");
         element.appendChild(para);
+        var audio = new Audio('Denied.mp3');
+        audio.play()
        
 
         
@@ -64,7 +66,7 @@ document.onkeyup = function(event) {
       element.appendChild(para);
 
       var para = document.createElement("p");
-      var node = document.createTextNode("" + " .... welcome dennis ");
+      var node = document.createTextNode("" + " .... welcome Dennis ");
       para.appendChild(node);
       var element = document.getElementById("textContent");
       element.appendChild(para);
@@ -74,6 +76,8 @@ document.onkeyup = function(event) {
       para.appendChild(node);
       var element = document.getElementById("textContent");
       element.appendChild(para);
+      var audio = new Audio('logged in.mp3');
+        audio.play()
     } 
     
     if (guessRemaining === 0){
@@ -82,6 +86,8 @@ document.onkeyup = function(event) {
       para.appendChild(node);
       var element = document.getElementById("textContent");
       element.appendChild(para);
+      var audio = new Audio('Denied-Failure.mp3');
+        audio.play()
       
       
       for(var i = 0; i < 200; i++){
@@ -90,11 +96,12 @@ document.onkeyup = function(event) {
         para.appendChild(node);
         var element = document.getElementById("textContent");
         element.appendChild(para);
-        
+        setTimeout(function(){ location.reload(); }, 16000);
         
       };
-      // alert("access: PERMISSION DENIED...and.." + "YOU DIDN'T SAY THE MAGIC WORD!"+ "YOU DIDN'T SAY THE MAGIC WORD!"+ "YOU DIDN'T SAY THE MAGIC WORD!")
+      
     };
+
     } 
   };
 

@@ -11,6 +11,7 @@ p {
     font-family: monospace;
     color: #a9b4c8;
     font-size: 18px;
+    margin-bottom: 0px;
 }
 
 .container {
@@ -24,9 +25,4 @@ p {
     padding: 0;
 
 }
-
-.sound-loop {
-    height: 0px;
-}
-
 
