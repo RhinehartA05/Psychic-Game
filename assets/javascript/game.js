@@ -18,7 +18,6 @@ var textGuess = document.getElementById("textGuess");//Displays players remainin
 
 document.onkeyup = function(event) {
     
-  
     var playerGuess = event.key; //Which key is pressed.
     console.log(playerGuess); //log on the console
 
@@ -40,7 +39,7 @@ document.onkeyup = function(event) {
       if ((blank === playerGuess)) {
         wins++;
         var para = document.createElement("p");
-        var node = document.createTextNode("access: ACCEPTED " + playerGuess + " case letter match... total " + wins +" of 3");
+        var node = document.createTextNode("access: ACCEPTED " + playerGuess + " case letter match... total " + wins +" of 2");
         para.appendChild(node);
         var element = document.getElementById("textContent");
         element.appendChild(para);
@@ -57,8 +56,6 @@ document.onkeyup = function(event) {
         element.appendChild(para);
         var audio = new Audio('Denied.mp3');
         audio.play()
-       
-
         
     } if (wins === 2){
       var para = document.createElement("p");
