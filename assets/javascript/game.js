@@ -36,7 +36,7 @@ document.onkeyup = function(event) {
     (playerGuess === "k")) {
     
   
-      if ((blank === playerGuess)) {
+      if ((blank === playerGuess)) { //correct guess
         wins++;
         var para = document.createElement("p");
         var node = document.createTextNode("access: ACCEPTED " + playerGuess + " case letter match... total " + wins +" of 2");
@@ -47,7 +47,7 @@ document.onkeyup = function(event) {
         audio.play()
 
         
-    } if (blank !== playerGuess) {
+    } if (blank !== playerGuess) { //incorrect guess
         guessRemaining--;
         var para = document.createElement("p");
         var node = document.createTextNode("access: " + " PERMISSION DENIED.... " + playerGuess + " not a match.... attempts left: " + guessRemaining);
@@ -57,7 +57,7 @@ document.onkeyup = function(event) {
         var audio = new Audio('Denied.mp3');
         audio.play()
         
-    } if (wins === 2){
+    } if (wins === 2){ //win by player
       var para = document.createElement("p");
       var node = document.createTextNode("access: GRANTED");
       para.appendChild(node);
@@ -80,7 +80,7 @@ document.onkeyup = function(event) {
         audio.play()
     } 
     
-    if (guessRemaining === 0){
+    if (guessRemaining === 0){ //player fails 
       var para = document.createElement("p");
       var node = document.createTextNode("access: PERMISSION DENIED...and..");
       para.appendChild(node);
@@ -90,7 +90,7 @@ document.onkeyup = function(event) {
         audio.play()
       
       
-      for(var i = 0; i < 200; i++){
+      for(var i = 0; i < 200; i++){ //failure and then restart
         var para = document.createElement("p");
         var node = document.createTextNode("YOU DIDN'T SAY THE MAGIC WORD!");
         para.appendChild(node);
